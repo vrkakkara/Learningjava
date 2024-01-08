@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class CruiseBooking extends MyBookings{
 	
-	int numberOfAdults;
-	int numberOfBigKids;
+	
+	String typeOfcruise;
 	double adultRate;
 	double childRate;
 	int numberOfDays;
@@ -13,6 +13,12 @@ public class CruiseBooking extends MyBookings{
 	double childFoodPrice=4.99;
 	int bigChildren;
 	
+	
+	boolean hasFood;
+	
+	String customerName;
+	int numberOfAdults;
+	int numberOfBigKids;
 	
 	
 
@@ -24,12 +30,6 @@ public class CruiseBooking extends MyBookings{
 		this.numberOfBigKids = numberOfBigKids;
 	}
 //Parameterized constructor which takes parameter values from corresponding child class
-	public CruiseBooking(double adultRate, double childRate, int numberOfDays) {
-		super();
-		this.adultRate = adultRate;
-		this.childRate = childRate;
-		this.numberOfDays = numberOfDays;
-	}
 	
 	
 	//blank non parameterized constructor
@@ -38,8 +38,18 @@ public class CruiseBooking extends MyBookings{
 	}
 
 	
+	public CruiseBooking( boolean hasFood, String customerName, int numberOfAdults,
+		int numberOfBigKids) {
+	super();
+	
+	this.hasFood = hasFood;
+	this.customerName = customerName;
+	this.numberOfAdults = numberOfAdults;
+	this.numberOfBigKids = numberOfBigKids;
+}
+
 	//Final bill calculation- Common method for all the cruises
-	public double calculateCost(boolean hasFood) {
+	public double calculateCost() {
 		double grandTotal;
 		double buffetAdults = 0;
 		double buffetKids = 0;
@@ -55,6 +65,7 @@ public class CruiseBooking extends MyBookings{
 		double totalFare = adultFare + childFare + buffetAdults + buffetKids;
 		double hst = totalFare * 0.15;
 		grandTotal = totalFare + hst;
+		System.out.println("You have selected "+typeOfcruise);
 		System.out.println("Your package includes: ");
 		System.out.println("Cruise Adults @" + numberOfAdults + " : " + adultFare);
 		System.out.println("Cruise Kids above age 5 @" + numberOfBigKids + " : " + childFare);

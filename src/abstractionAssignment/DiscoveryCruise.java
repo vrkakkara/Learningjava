@@ -1,17 +1,32 @@
 package abstractionAssignment;
 
 public class DiscoveryCruise extends CruiseBooking{
-	int numberOfAdults;
-	int numberOfBigKids;
+	double adultDailyRate=39.99;
+	double childDailyRate=9.99;
+	int days=4;
+	String nameOfCruise="Discovery Cruise";
 	
-	double cost=39.99;
-	//Hard coding on line 13 not advisable
 	
-
-
-	public DiscoveryCruise() {
-		super(39.99, 9.99, 4);
+	
+	public DiscoveryCruise( boolean hasFood, String customerName, int numberOfAdults,
+			int numberOfBigKids) {
+		super(hasFood, customerName, numberOfAdults, numberOfBigKids);
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	
+	@Override
+	public void passRates() {
+		adultRate=adultDailyRate;
+		childRate=childDailyRate;
+		numberOfDays=days;
+		typeOfcruise=nameOfCruise;
+	
+	}
+	
+
+
+	
 
 }

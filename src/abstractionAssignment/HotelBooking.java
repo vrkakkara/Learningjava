@@ -9,7 +9,7 @@ public class HotelBooking extends MyBookings{
 	public int daysOfStay;
 	public int numberOfAdults;
 	public int numberOfKids;
-	public double roomRate;
+	public double roomRate=0;
 	private double lunchRateAdult=25;
 	private double lunchRateKid=5;
 	private double grandTotalCost;
@@ -57,7 +57,7 @@ public class HotelBooking extends MyBookings{
 		return grandTotalCost;
 	}
 	@Override
-	public void passRoomRate() {
+	public void passRates() {
 		
 	}
 	//Pass these values from mainclass

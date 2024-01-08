@@ -13,7 +13,7 @@ public abstract class MyBookings {
 	public abstract double calculateCost();
 
 
-	public void passRoomRate() {
+	public void passRates() {
 		// TODO Auto-generated method stub
 		
 	}
