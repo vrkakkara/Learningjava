@@ -1,29 +1,34 @@
 package abstractionAssignment;
 
 public class MysteryCruise extends CruiseBooking {
-	double adultDailyRate=45.99;
-	double childDailyRate=12.99;
-	int days=2;
-	String nameOfCruise="Mystery Cruise";
+	private double adultDailyRate=45.99;
+	private double childDailyRate=12.99;
+	private int days=2;
+	private String nameOfCruise="Mystery Cruise";
+	private double RateOfService=20;
 	
 	
 	
-	public MysteryCruise( boolean hasFood, String customerName, int numberOfAdults,
+	public MysteryCruise( boolean hasService,boolean hasFood, String customerName, int numberOfAdults,
 			int numberOfBigKids) {
-		super(hasFood, customerName, numberOfAdults, numberOfBigKids);
-		// TODO Auto-generated constructor stub
-	}
-	
-
-	
-	@Override
-	public void passRates() {
+		super(hasService,hasFood, customerName, numberOfAdults, numberOfBigKids);
 		adultRate=adultDailyRate;
 		childRate=childDailyRate;
 		numberOfDays=days;
 		typeOfcruise=nameOfCruise;
-	
+		serviceRate=RateOfService;
 	}
+	
+
+	
+//	@Override
+//	public void passRates() {
+//		adultRate=adultDailyRate;
+//		childRate=childDailyRate;
+//		numberOfDays=days;
+//		typeOfcruise=nameOfCruise;
+//		serviceRate=RateOfService;
+//	}
 	
 	
 	

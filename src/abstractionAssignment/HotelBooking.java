@@ -9,7 +9,7 @@ public class HotelBooking extends MyBookings{
 	public int daysOfStay;
 	public int numberOfAdults;
 	public int numberOfKids;
-	public double roomRate=0;
+	public double roomRate;
 	private double lunchRateAdult=25;
 	private double lunchRateKid=5;
 	private double grandTotalCost;

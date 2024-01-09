@@ -14,8 +14,10 @@ public abstract class MyBookings {
 
 
 	public void passRates() {
-		// TODO Auto-generated method stub
 		
 	}
+		
+		
+	
 
 }
