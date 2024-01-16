@@ -13,7 +13,7 @@ public class R2 extends Rocket{
 	@Override
 	public boolean launch(double weight) {
 		chanceOfLaunchFailure=probabilityLaunchExplosion*(weight/maxWeight);
-		if(chanceOfLaunchFailure>0.045) {
+		if(chanceOfLaunchFailure>(Math.random()*0.08)) {
 			return false;
 		}
 		else {
@@ -25,7 +25,7 @@ public class R2 extends Rocket{
 	public boolean land(double weight) {
 chanceOfLandingFailure=probabilityLandingExplosion*(weight/maxWeight);
 		
-		if(chanceOfLandingFailure>0.04) {
+		if(chanceOfLandingFailure>(Math.random()*0.16)) {
 			return false;
 		}
 		else {

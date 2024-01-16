@@ -12,6 +12,7 @@ public class Simulation {
 	ArrayList<Double> rocketWeights = new ArrayList<>();
 	Rocket rocket=new Rocket();
 	private int timesOfLaunch;
+	private int timesOfFailure;
 	private double totalCost;
 	
 	//public String rocketType;
@@ -39,9 +40,12 @@ public class Simulation {
 		totalWeight=rocket.getRocketWeight();
 		int j=0;
 				for(int i=j;i<items.size();i++) {
-			totalWeight=totalWeight+items.get(i).getItemWeight();
-			if(totalWeight>rocket.getMaxWeight()) {
-				rocketWeights.add(totalWeight-items.get(i).getItemWeight());
+					if(rocket.canCarry(totalWeight, items.get(i).getItemWeight())) {
+			totalWeight=rocket.carry(totalWeight, items.get(i).getItemWeight());
+					}
+					else {
+						rocketWeights.add(totalWeight);
+				
 				j=i;
 				totalWeight=rocket.getRocketWeight();	
 			}
@@ -54,21 +58,25 @@ public class Simulation {
 		rocket=new R2();
 		totalWeight=rocket.getRocketWeight();
 		int j=0;
-				for(int i=j;i<items.size();i++) {
-			totalWeight=totalWeight+items.get(i).getItemWeight();
-			if(totalWeight>rocket.getMaxWeight()) {
-				rocketWeights.add(totalWeight-items.get(i).getItemWeight());
-				j=i;
-				totalWeight=rocket.getRocketWeight();	
+		for(int i=j;i<items.size();i++) {
+			if(rocket.canCarry(totalWeight, items.get(i).getItemWeight())) {
+	totalWeight=rocket.carry(totalWeight, items.get(i).getItemWeight());
 			}
-					
-				}
+			else {
+			rocketWeights.add(totalWeight);
+		j=i;
+		totalWeight=rocket.getRocketWeight();	
+	}
+			
+		}
 				return rocketWeights;
 		
 	}
 	
 	public double runSimulation(String rocketType) {
 		timesOfLaunch=0;
+		timesOfFailure=0;
+		
 		if(rocketType.equalsIgnoreCase("R1")) {
 			rocket=new R1();
 			
@@ -82,7 +90,9 @@ public class Simulation {
 				timesOfLaunch++;
 			}
 			else  {
-				timesOfLaunch+=2;
+				timesOfLaunch++;
+				timesOfFailure++;
+				i=i-1;
 			}
 		}
 		totalCost=timesOfLaunch*rocket.getRocketCost();
@@ -91,5 +101,9 @@ public class Simulation {
 	public int getTimesOfLaunch() {
 		return timesOfLaunch;
 	}
+	public int getTimesOfFailure() {
+		return timesOfFailure;
+	}
+	
 	
 }

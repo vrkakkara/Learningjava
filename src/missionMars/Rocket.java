@@ -7,7 +7,7 @@ public class Rocket implements SpaceShip{
 
 	@Override
 	public boolean launch(double totalWeight) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
@@ -18,15 +18,23 @@ public class Rocket implements SpaceShip{
 	}
 
 	@Override
-	public boolean canCarry(String item) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean canCarry(double totalWeight,double itemWeight) {
+		totalWeight=totalWeight+itemWeight;
+		if(totalWeight<=getMaxWeight()) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	@Override
-	public int carry(int weight) {
+	public double carry(double totalWeight,double itemWeight) {
+		totalWeight=totalWeight+itemWeight;
+        return totalWeight;
 		
-		return 0;
+		
+		
 	}
 	public double getRocketWeight() {
 		return rocketWt;
